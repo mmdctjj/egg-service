@@ -21,14 +21,12 @@ public class UserController {
     public Responsed login (User user) {
 
         QueryWrapper wrapper = new QueryWrapper();
+
         wrapper.eq("phone", user.getPhone());
+
         Long count = userService.selectCount(wrapper);
 
-
-        if (count == 0) {
-            //TODO
-            System.out.println(count);
-        }
+        if (count == 0) {userService.insert(user);}
 
         return ResponsedUtil.success();
     }

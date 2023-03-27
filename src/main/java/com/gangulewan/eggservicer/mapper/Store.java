@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Store {
     @TableId
-    private String openId;
-    private String nickName;
-    private String avatarUrl;
+    private String code;
+    private String name;
+    private String position;
     private Long phone;
-    private Integer gender;
+    private String picList;
 }

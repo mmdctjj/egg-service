@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/store")
 public class StoreController {
 
-    @Autowired
+    @Autowired(required = false)
     StoreService storeService;
 
     @PostMapping("/register")

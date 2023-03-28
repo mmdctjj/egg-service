@@ -6,6 +6,7 @@ import com.gangulewan.eggservicer.service.UserService;
 import com.gangulewan.eggservicer.utils.Responsed;
 import com.gangulewan.eggservicer.utils.ResponsedUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/user")
 public class UserController {
 
-    @Autowired
+    @Autowired(required = false)
     UserService userService;
 
     @PostMapping("/login")
@@ -27,6 +28,14 @@ public class UserController {
         Long count = userService.selectCount(wrapper);
 
         if (count == 0) {userService.insert(user);}
+
+        return ResponsedUtil.success();
+    }
+
+    @GetMapping("/register")
+    public Responsed register () {
+
+
 
         return ResponsedUtil.success();
     }
